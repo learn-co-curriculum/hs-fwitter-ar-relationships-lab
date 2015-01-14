@@ -13,9 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20150113203115) do
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer "followed_id"
-    t.integer "follower_id"
+  create_table "messages", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.string  "message"
   end
 
   create_table "tweets", force: :cascade do |t|

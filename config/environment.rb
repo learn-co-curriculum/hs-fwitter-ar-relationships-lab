@@ -3,7 +3,7 @@ Bundler.require
 
 require './app/models/tweet'
 require './app/models/user'
-require './app/models/relationship'
+require './app/models/message'
 
 
 configure :development do

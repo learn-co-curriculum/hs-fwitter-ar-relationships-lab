@@ -1,12 +1,6 @@
 class User < ActiveRecord::Base
   has_many  :tweets
-  has_many :following_relationships,  class_name:  "Relationship",
-                                   foreign_key: "follower_id",
-                                   dependent:   :destroy
-  has_many :follower_relationships, class_name:  "Relationship",
-                                   foreign_key: "followed_id",
-                                   dependent:   :destroy
-  has_many :following, through: :following_relationships,  source: :followed
-  has_many :followers, through: :follower_relationships, source: :follower
+  has_many :sent_messages, class_name:  "Message", foreign_key: "sender_id", dependent: :destroy
+  has_many :received_messages, class_name:  "Message", foreign_key: "receiver_id", dependent: :destroy
 
 end
