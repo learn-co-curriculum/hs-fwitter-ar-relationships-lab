@@ -5,16 +5,55 @@ level: 3
 type: lab
 ---
 
-## Let's Create Followers
+## Let's Create Direct Messages
 
-Time to take those active record skills to the next level and start tracking a user's followers.
+Time to take those active record skills to the next level and start tracking direct messages. A create messages migration has been created for you - you'll just need to run `rake db:migrate` to create a table with columns for sender id, receiver id and a message. A message model has also been created but you'll need to set up the following relationships:
 
-This is a tricky data setup because users can be both followers and followees. Michael Hartl has a good explanation of how to set this up in his Rails tutorial here: https://www.railstutorial.org/book/following_users#sec-a_problem_with_the_data_model
+User has many 
+  sent messages
+  received messages
 
-This is a problem worth learning how to handle because there are many app where users take on multiple roles - like AirBnB (users can be both hosts and guests) and eBay (users can be both buyers and sellers) or even potentially Uber (maybe a driver wants to hire a car on his day off!).
+Messages belong to 
+  senders
+  receivers
 
-Run `bundle install` and `rspec --fail-fast` to work through the lab and make the tests pass. Definitely also take a look at Hartl's tutorial for more in depth explanations!
+You'll need to use aliasing to accomplish this. Let's take a look at another example for a site like AirBNB with the following relationships:
 
-Here is a summary of what you'll need to get done:
+User has many 
+  reservations as a guest
+  reservations as a host
+
+Reservations belong to 
+  guests
+  hosts
+
+Here is an example of how we would aliasing to establish these relationships:
+
+```ruby
+class Reservation < ActiveRecord::Base
+  belongs_to :guest, :class_name => "User"
+  belongs_to :host, :class_name => "User"
+
+end
+
+class User < ActiveRecord::Base
+  has_many :reservations_as_guest, :class_name => "Reservation", 
+           :foreign_key => "guest_id"
+  has_many :reservations_as_host, :class_name => "Reservation", 
+           :foreign_key => "host_id"
+
+end
+```
+
+Try following this pattern to set up the relationship between users and messages in the app.
+
+### Bonus!
+
+Want to take those active record skills to the next level and start tracking a user's followers?
+
+This is a little trickier but Michael Hartl has a good explanation of how to set this up in his Rails tutorial here: https://www.railstutorial.org/book/following_users#sec-a_problem_with_the_data_model
+
+This is a problem worth learning how to handle because there are many app where users take on multiple roles - like AirBnB, eBay (users can be both buyers and sellers) or even potentially Uber (maybe a driver wants to hire a car on his day off!).
+
 
 
