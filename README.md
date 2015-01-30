@@ -51,7 +51,7 @@ Once you've got your models set up and working, work on the views and controller
 
 ### Bonus Challenge!
 
-Start tracking followers! This is a little trickier but Michael Hartl has a good explanation of how to set this up in his Rails tutorial here: https://www.railstutorial.org/book/following_users#sec-a_problem_with_the_data_model
+Start tracking followers! This is a little trickier but Michael Hartl has a good explanation of how to set this up in his Rails tutorial [here](https://www.railstutorial.org/book/following_users#sec-a_problem_with_the_data_model).
 
 This is a problem worth learning how to handle because there are many apps where users take on multiple roles - like AirBnB, eBay (users can be both buyers and sellers) or even potentially Uber (maybe a driver wants to hire a car on his day off!).
 
