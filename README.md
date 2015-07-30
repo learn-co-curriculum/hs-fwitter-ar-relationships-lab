@@ -1,9 +1,4 @@
----
-tags: active record, sinatra, database, ruby, kids
-language: ruby
-level: 3
-type: lab
----
+
 
 ## Let's Create Direct Messages
 
