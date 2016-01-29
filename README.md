@@ -53,4 +53,4 @@ This is a problem worth learning how to handle because there are many apps where
 
 
 
-<a href='https://learn.co/lessons/hs-fwitter-ar-relationships-lab' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/hs-fwitter-ar-relationships-lab' title='Let's Create Direct Messages'>Let's Create Direct Messages</a> on Learn.co and start learning to code for free.</p>
